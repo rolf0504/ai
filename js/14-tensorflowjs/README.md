@@ -95,3 +95,74 @@ deeplearn.js is an open-source library that brings performant machine learning b
 
 * https://github.com/PAIR-code/deeplearnjs/tree/master/starter/es6/
 
+
+# 官方範例 ccc 測試結果
+
+## abalone-node 失敗
+
+PS D:\ccc\test\tfjs-examples\abalone-node> yarn train
+yarn run v1.6.0
+(node:10592) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+$ node train.js
+internal/modules/cjs/loader.js:805
+  return process.dlopen(module, path.toNamespacedPath(filename));
+                 ^
+
+Error: A dynamic link library (DLL) initialization routine failed.
+\\?\D:\ccc\test\tfjs-examples\abalone-node\node_modules\@tensorflow\tfjs-node\lib\napi-v4\tfjs_binding.node
+    at Object.Module._extensions..node (internal/modules/cjs/loader.js:805:18)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:690:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at Object.<anonymous> (D:\ccc\test\tfjs-examples\abalone-node\node_modules\@tensorflow\tfjs-node\dist\index.js:44:16)
+    at Module._compile (internal/modules/cjs/loader.js:776:30)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:787:10)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+PS D:\ccc\test\tfjs-examples\abalone-node> node -v
+v10.16.0
+
+## fashion-mnist-vae 失敗
+
+PS D:\ccc\test\tfjs-examples\fashion-mnist-vae> yarn
+yarn install v1.6.0
+(node:5592) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(),
+or Buffer.from() methods instead.
+[1/5] Validating package.json...
+[2/5] Resolving packages...
+[3/5] Fetching packages...
+info fsevents@1.2.7: The platform "win32" is incompatible with this module.
+info "fsevents@1.2.7" is an optional dependency and failed compatibility check. Excluding it from installation.
+[4/5] Linking dependencies...
+warning "@tensorflow/tfjs > @tensorflow/tfjs-data@1.2.2" has unmet peer dependency "seedrandom@~2.4.3".
+warning "@tensorflow/tfjs > @tensorflow/tfjs-core > rollup-plugin-visualizer@1.1.1" has unmet peer dependency "rollup@>=0.60.0".
+warning "@tensorflow/tfjs-vis > vega-embed > vega-themes@2.3.0" has unmet peer dependency "vega@*".
+[5/5] Building fresh packages...
+Done in 2182.45s.
+PS D:\ccc\test\tfjs-examples\fashion-mnist-vae> yarn train
+yarn run v1.6.0
+(node:9920) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(),
+or Buffer.from() methods instead.
+$ node train.js
+Training using CPU.
+Initialization of backend tensorflow failed
+Error: A dynamic link library (DLL) initialization routine failed.
+\\?\D:\ccc\test\tfjs-examples\fashion-mnist-vae\node_modules\@tensorflow\tfjs-node\build\Release\tfjs_binding.node
+    at Object.Module._extensions..node (internal/modules/cjs/loader.js:805:18)
+    at Module.load (internal/modules/cjs/loader.js:653:32)
+    at tryModuleLoad (internal/modules/cjs/loader.js:593:12)
+    at Function.Module._load (internal/modules/cjs/loader.js:585:3)
+    at Module.require (internal/modules/cjs/loader.js:690:17)
+    at require (internal/modules/cjs/helpers.js:25:18)
+    at bindings (D:\ccc\test\tfjs-examples\fashion-mnist-vae\node_modules\bindings\bindings.js:84:48)
+    at Object.factory (D:\ccc\test\tfjs-examples\fashion-mnist-vae\node_modules\@tensorflow\tfjs-node\dist\index.js:48:60)
+    at Engine.initializeBackend (D:\ccc\test\tfjs-examples\fashion-mnist-vae\node_modules\@tensorflow\tfjs-core\dist\engine.js:238:48)
+    at Engine.<anonymous> (D:\ccc\test\tfjs-examples\fashion-mnist-vae\node_modules\@tensorflow\tfjs-core\dist\engine.js:201:35)
+Data File: dataset\train-images-idx3-ubyte does not exist.
+      Please see the README for instructions on how to download it
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+PS D:\ccc\test\tfjs-examples\fashion-mnist-vae>
