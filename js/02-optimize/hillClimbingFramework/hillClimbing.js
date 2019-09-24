@@ -7,7 +7,8 @@ function hillClimbing(s, maxGens, maxFails) { // 爬山演算法的主體函數
       var sheight = s.height()          // sheight=目前解的高度
       var nheight = snew.height()       // nheight=鄰近解的高度
       if (nheight >= sheight) {         // 如果鄰近解比目前解更好
-        if (nheight > sheight) console.log("%d: %s", gens, snew)  //   印出新的解
+        // if (nheight > sheight) console.log("%d: %s", gens, snew)  //   印出新的解
+        console.log("%d: %s", gens, snew)
         // console.log("%d: %s", gens, snew)
         s = snew                        //   就移動過去
         fails = 0                       //   移動成功，將連續失敗次數歸零

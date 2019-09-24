@@ -1,5 +1,4 @@
 from py6.ai.solution import Solution
-from math import floor
 from random import random, randint
 
 class SolutionArray(Solution):

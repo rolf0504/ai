@@ -60,7 +60,7 @@ class SolutionScheduling extends Solution {
     for (let i=0; i<slots.length; i++) {
       fills[i] = randCourse()
     }
-    return fills
+    return new SolutionScheduling(fills)
   }
 
   neighbor() {    // 單變數解答的鄰居函數。
