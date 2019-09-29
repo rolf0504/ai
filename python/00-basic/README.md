@@ -5,6 +5,10 @@
 * https://www.python.org/downloads/
 * https://www.jetbrains.com/education/download/#section=pycharm-edu
 
+## ipynb 筆記本
+
+* https://nbviewer.jupyter.org/
+
 ## Platform
 
 * Game : https://kivy.org/
@@ -22,3 +26,4 @@
 ## 專案
 
 * https://github.com/TheAlgorithms/Python
+ 
