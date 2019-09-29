@@ -17,3 +17,8 @@ _book
 *.epub
 *.mobi
 *.pdf
+
+*.zip
+*.rar
+*.tar
+*.gz

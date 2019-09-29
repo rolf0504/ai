@@ -1,5 +1,7 @@
 # 語言處理
 
+套件 -- https://github.com/NaturalNode/natural
+
 ## 語句產生
 
 ### 自動產生英文語句
