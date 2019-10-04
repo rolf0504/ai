@@ -1,5 +1,7 @@
 # Tensorflow.js
 
+* 事先訓練好的 model -- https://github.com/tensorflow/tfjs-models
+
 // 注意看 Model 的用法 -- https://js.tensorflow.org/api/0.10.0/#class:Model
 
 試用： https://playground.tensorflow.org/
