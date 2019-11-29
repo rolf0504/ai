@@ -27,3 +27,6 @@
 
 * https://github.com/TheAlgorithms/Python
  
+## 文章
+
+* https://python-packaging.readthedocs.io/en/latest/minimal.html
