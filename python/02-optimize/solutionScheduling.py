@@ -46,58 +46,58 @@ slots = [
 cols = 7
 
 def randSlot() :
-	return randint(0, len(slots)-1)
+    return randint(0, len(slots)-1)
 
 def randCourse() :
-	return randint(0, len(courses)-1)
+    return randint(0, len(courses)-1)
 
 
 class SolutionScheduling(Solution) :
-	def neighbor(self):    # 單變數解答的鄰居函數。
-		fills = self.v.copy()
-		choose = randint(0, 1)
-		if choose == 0: # 任選一個改變 
-			i = randSlot()
-			fills[i] = randCourse()
-		elif choose == 1: # 任選兩個交換
-			i = randSlot()
-			j = randSlot()
-			t = fills[i]
-			fills[i] = fills[j]
-			fills[j] = t
-		return SolutionScheduling(fills)                  # 建立新解答並傳回。
+    def neighbor(self):    # 單變數解答的鄰居函數。
+        fills = self.v.copy()
+        choose = randint(0, 1)
+        if choose == 0: # 任選一個改變 
+            i = randSlot()
+            fills[i] = randCourse()
+        elif choose == 1: # 任選兩個交換
+            i = randSlot()
+            j = randSlot()
+            t = fills[i]
+            fills[i] = fills[j]
+            fills[j] = t
+        return SolutionScheduling(fills)                  # 建立新解答並傳回。
 
-	def height(self) :      # 高度函數
-		courseCounts = [0] * len(courses)
-		fills = self.v
-		score = 0
-		# courseCounts.fill(0, 0, courses.length)
-		for si in range(len(slots)):
-			courseCounts[fills[si]] += 1
-			#                        連續上課:好                   隔天:不好     跨越中午:不好
-			if si < len(slots)-1 and fills[si] == fills[si+1] and si%7 != 6 and si%7 != 3:
-				score += 0.1
-			if si % 7 == 0 and fills[si] != 0: # 早上 8:00: 不好
-				score -= 0.12
-		
-		for ci in range(len(courses)):
-			if (courses[ci]['hours'] >= 0):
-				score -= abs(courseCounts[ci] - courses[ci]['hours']) # 課程總時數不對: 不好
-		return score
+    def height(self) :      # 高度函數
+        courseCounts = [0] * len(courses)
+        fills = self.v
+        score = 0
+        # courseCounts.fill(0, 0, courses.length)
+        for si in range(len(slots)):
+            courseCounts[fills[si]] += 1
+            #                        連續上課:好                   隔天:不好     跨越中午:不好
+            if si < len(slots)-1 and fills[si] == fills[si+1] and si%7 != 6 and si%7 != 3:
+                score += 0.1
+            if si % 7 == 0 and fills[si] != 0: # 早上 8:00: 不好
+                score -= 0.12
+        
+        for ci in range(len(courses)):
+            if (courses[ci]['hours'] >= 0):
+                score -= abs(courseCounts[ci] - courses[ci]['hours']) # 課程總時數不對: 不好
+        return score
 
-	def str(self) :    # 將解答轉為字串，以供印出觀察。
-		outs = []
-		fills = self.v
-		for i in range(len(slots)):
-			c = courses[fills[i]]
-			if i%7 == 0:
-				outs.append('\n')
-			outs.append(slots[i] + ':' + c['name'])
-		return 'score={:f} {:s}\n\n'.format(self.energy(), ' '.join(outs))
-	
-	@classmethod
-	def init(cls):
-		fills = [0] * len(slots)
-		for i in range(len(slots)):
-			fills[i] = randCourse()
-		return SolutionScheduling(fills)
+    def str(self) :    # 將解答轉為字串，以供印出觀察。
+        outs = []
+        fills = self.v
+        for i in range(len(slots)):
+            c = courses[fills[i]]
+            if i%7 == 0:
+                outs.append('\n')
+            outs.append(slots[i] + ':' + c['name'])
+        return 'score={:f} {:s}\n\n'.format(self.energy(), ' '.join(outs))
+    
+    @classmethod
+    def init(cls):
+        fills = [0] * len(slots)
+        for i in range(len(slots)):
+            fills[i] = randCourse()
+        return SolutionScheduling(fills)

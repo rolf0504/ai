@@ -11,4 +11,4 @@ net.backward()
 print('x=', x, 'y=', y, 'o=', o)
 print('gfx = x.g/o.g = ', x.g/o.g, 'gfy = y.g/o.g=', y.g/o.g)
 
-net.train()
+net.gradient_descendent()

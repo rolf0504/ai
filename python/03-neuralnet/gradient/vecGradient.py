@@ -2,21 +2,21 @@ step = 0.01
 
 # 我們想找函數 f 的最低點
 def f(p):
-	[x,y] = p
-	return x * x + y * y
+    [x,y] = p
+    return x * x + y * y
 
 # 函數 f 對變數 k 的偏微分: df / dk
 def df(f, p, k):
-	p1 = p.copy()
-	p1[k] += step
-	return (f(p1) - f(p)) / step
+    p1 = p.copy()
+    p1[k] += step
+    return (f(p1) - f(p)) / step
 
 # 函數 f 在點 p 上的梯度
 def grad(f, p):
-	gp = p.copy()
-	for k in range(len(p)):
-		gp[k] = df(f, p, k)
-	return gp
+    gp = p.copy()
+    for k in range(len(p)):
+        gp[k] = df(f, p, k)
+    return gp
 
 [x,y] = [1,3]
 print('x=', x, 'y=', y)
