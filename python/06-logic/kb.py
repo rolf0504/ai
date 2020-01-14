@@ -63,32 +63,3 @@ class KB:
                 break
 
         print("facts=", self.facts.keys())
-'''
-    def trySatisfy(self, goal):
-        print("trySatisfy({})", goal)
-        word = self.dict[goal]
-        if word == None:
-            return False
-        headHits = word.headHits
-
-        for rule in headHits:
-            if rule.satisfy:
-                self.addFact(goal)
-                return True
-            else:
-                isSatisfy = True
-                for ti in rule.terms:
-                    term = rule.terms[ti]
-                    satisfy = self.trySatisfy(term)
-                if not satisfy:
-                    isSatisfy = False
-                rule.satisfy = isSatisfy
-                if isSatisfy:
-                    self.addFact(goal)
-                    return True
-        return False
-
-    def backwardChaining(self, goal):
-      self.trySatisfy(goal)
-      print("facts={}", self.facts.keys())
-'''
