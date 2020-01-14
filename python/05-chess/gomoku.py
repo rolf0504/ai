@@ -1,8 +1,10 @@
-#  五子棋遊戲，單機命令列版
-#    人對人下  ：node gomoku P2P
-#    人對電腦  ：node gomoku P2C
-#    電腦對電腦：node gomoku C2C
-#  作者：陳鍾誠
+'''
+五子棋遊戲，單機命令列版 -- 作者：陳鍾誠
+
+人對人下  ：python gomoku.py P P
+人對電腦  ：python gomoku.py P C
+電腦對電腦：python gomoku.py C C
+'''
 
 import sys
 #  棋盤物件
@@ -78,15 +80,6 @@ def winCheck(board, turn):
 
     return win
 
-def peopleTurn(board, turn, xy):
-  r = int(xy[0], 16) #  取得下子的列 r (row)
-  c = int(xy[1], 16) #  取得下子的行 c (column)
-  if r < 0 or r > board.rMax or c < 0 or c > board.cMax: #  檢查是否超出範圍
-    raise Exception('(row, col) 超出範圍!') #  若超出範圍就丟出例外，下一輪重新輸入。
-  if board.m[r][c] != '-': #  檢查該位置是否已被佔據
-    raise Exception('({}{}) 已經被佔領了!'.format(xy[0], xy[1])) #  若被佔據就丟出例外，下一輪重新輸入。
-  board.m[r][c] = turn #  否則、將子下在使用者輸入的 (r,c) 位置
-
 attackScores = [0, 3, 10, 30, 100, 500]
 guardScores = [0, 2, 9, 25, 90, 400]
 attack = 1
@@ -100,8 +93,8 @@ def getScore(board, r, c, turn, mode):
         for len1 in reversed(range(5)):
             length = len1 + 1
             zero = z9[start: start + length]
-            inc = i9[start:start + length]
-            dec = d9[start:start + length]
+            inc  = i9[start: start + length]
+            dec  = d9[start: start + length]
             if patternCheck(board, turn, r, c, zero, inc):
                 score += mScores[length] #  攻擊：垂直 |
             if patternCheck(board, turn, r, c, inc, zero):
@@ -118,6 +111,20 @@ def getScore(board, r, c, turn, mode):
     board.m[r][c] = '-'
     return score
 
+def peopleTurn(board, turn):
+    try:
+        xy = input('將 {} 下在: '.format(turn))
+        r = int(xy[0], 16) #  取得下子的列 r (row)
+        c = int(xy[1], 16) #  取得下子的行 c (column)
+        if r < 0 or r > board.rMax or c < 0 or c > board.cMax: #  檢查是否超出範圍
+            raise Exception('(row, col) 超出範圍!') #  若超出範圍就丟出例外，下一輪重新輸入。
+        if board.m[r][c] != '-': #  檢查該位置是否已被佔據
+            raise Exception('({}{}) 已經被佔領了!'.format(xy[0], xy[1])) #  若被佔據就丟出例外，下一輪重新輸入。
+        board.m[r][c] = turn #  否則、將子下在使用者輸入的 (r,c) 位置
+    except Exception as error:
+        print(error)
+        peopleTurn(board, turn)
+
 def computerTurn(board, turn):
     best = {'r': 0, 'c': 0, 'score': -1}
     for r in range(board.rMax):
@@ -128,6 +135,8 @@ def computerTurn(board, turn):
             attackScore = getScore(board, r, c, turn, attack)  #  攻擊分數
             guardScore = getScore(board, r, c, enermy, guard)   #  防守分數
             score = attackScore + guardScore
+            if r==8 and c==8: # 電腦若是第一手應該下 (8,8)
+                score += 1
             if score > best['score']:
                 best['r'] = r
                 best['c'] = c
@@ -136,48 +145,22 @@ def computerTurn(board, turn):
     # print('best=', best)
     board.m[best['r']][best['c']] = turn #  否則、將子下在使用者輸入的 (r,c) 位置
 
-
-def P2P(b, turn, xy):
-    peopleTurn(b, turn, xy)
-    b.show()         #  顯示棋盤現況
-    winCheck(b, turn)
-    opponent = 'x' if turn == 'o' else 'o'
-    return opponent #  換對方下了。
-
-def P2C(b, turn, xy):
-    peopleTurn(b, 'o', xy)
-    b.show()         #  顯示棋盤現況
-    winCheck(b, 'o') #  檢查下了這子之後是否贏了！
-    computerTurn(b, 'x')
-    b.show()
-    winCheck(b, 'x')
-    return 'o'
-
-def C2C(b, turn, xy):
-    computerTurn(b, 'o')
-    b.show()         #  顯示棋盤現況
-    winCheck(b, 'o') #  檢查下了這子之後是否贏了！
-    computerTurn(b, 'x')
-    b.show()
-    winCheck(b, 'x')
-    return 'o' #  ox 之後又換 o 了。
-
-def chess(X2X):
-    #  主程式開始
+def chess(o, x):
     b = Board(16, 16) #  建立棋盤
     b.show()            #  顯示棋盤
-    turn = 'o'      #  o 先下
     while (True):
-        xy = input('將 {} 下在: '.format(turn))
-        turn = X2X(b, turn, xy)
+        if o=='P':
+            peopleTurn(b, 'o')
+        else:
+            computerTurn(b, 'o')
+        b.show()         #  顯示棋盤現況
+        winCheck(b, 'o') #  檢查下了這子之後是否贏了！
+        if x=='P':
+            peopleTurn(b, 'x')
+        else:
+            computerTurn(b, 'x')
+        b.show()
+        winCheck(b, 'x')
 
-mode = sys.argv[1]
-if mode == 'P2P':
-    chess(P2P) #  人對人下
-elif mode == 'P2C':
-    chess(P2C) #  人對電腦下
-elif mode == 'C2C':
-    chess(C2C) #  電腦對電腦下
-else: #  命令下錯，提示訊息！
-    print('人對人下：python chess.py P2P\n人對電腦：python chess.py P2C\n電腦對電腦：python chess.py C2C')
-    sys.exit(0)
+o, x = sys.argv[1], sys.argv[2]
+chess(o, x)
