@@ -20,7 +20,7 @@ def CLT(s, bins=100, rwidth=0.9):
     plt.show() # 顯示圖形
 
 n = 100000
-CLT(norm.rvs(size=n))
+# CLT(norm.rvs(size=n))
 CLT(uniform.rvs(size=n))
 CLT(np.random.choice([0,1], size=n))
 CLT(np.random.choice([1,2,3,4,5,6], size=n))

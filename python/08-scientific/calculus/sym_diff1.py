@@ -3,6 +3,7 @@ from sympy import *
 x, y, z = symbols('x y z')
 init_printing(use_unicode=True)
 
-m, n, a, b = symbols('m n a b')
-expr = (a*x + b)**m
-print('expr.diff((x, n))=', expr.diff((x, n)))
+print('diff(cos(x), x)=', diff(cos(x), x))
+print('diff(exp(x**2), x)=', diff(exp(x**2), x))
+
+
