@@ -1,3 +1,3 @@
-import mymath.lib
+from mymath.lib import max
 
-print(mymath.lib.max(3,5))
+print(max(3,5))
