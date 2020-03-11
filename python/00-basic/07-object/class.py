@@ -24,4 +24,4 @@ print(person1.age)
 print(person2.age) 
   
 # print the result 
-print(Person.isAdult(22)) 
+print(Person.isAdult(22))
