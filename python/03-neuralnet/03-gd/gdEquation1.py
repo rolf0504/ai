@@ -1,7 +1,7 @@
 """
 A X = B ，求 X 是多少？
 
-3x+2y=1
+3x+2y=5
 1x+1y=2
 """
 import gd2 as gd
