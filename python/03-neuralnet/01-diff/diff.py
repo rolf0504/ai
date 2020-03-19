@@ -1,6 +1,8 @@
 def f(x):
     return x*x
 
+def
+
 dx = 0.001
 
 def diff(f, x):
