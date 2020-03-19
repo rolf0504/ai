@@ -1,4 +1,4 @@
-import gd
+import gd1 as gd
 
 def f(p):
     [x,y] = p
