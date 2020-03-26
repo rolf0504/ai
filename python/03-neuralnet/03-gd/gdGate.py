@@ -8,7 +8,7 @@ def sig(t):
 o = [0,0,0,1] # and gate outputs
 # o = [0,1,1,1] # or gate outputs
 # o = [0,1,1,0] # xor gate outputs
-def andLoss(p):
+def loss(p):
     [w1,w2,b] = p
     o1 = sig(w1*0+w2*0+b)
     o2 = sig(w1*0+w2*1+b)
@@ -19,4 +19,4 @@ def andLoss(p):
     return np.linalg.norm(delta, 2)
 
 p = [0.0, 0.0, 0.0] # [w1,w2,b] 
-gd.gradientDescendent(andLoss, p, max_loops=1500)
+gd.gradientDescendent(loss, p, max_loops=1500)
