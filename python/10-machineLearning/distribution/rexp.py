@@ -1,4 +1,4 @@
-/*
+'''
 
 定理： 對任一連續分佈 F, 隨機變量 $X = F^{-1}(U)$ 的分佈為 F
 
@@ -12,12 +12,13 @@
 
 因此我們可以用 invF 來產生該分佈的樣本。
 
-*/
+'''
 
-function rexp(lambda) {
-  return (-1/lambda) * Math.log(1-Math.random())
-}
+import math
+import random
 
-for (let i=0; i<100; i++) {
-  console.log('rexp(2)=', rexp(2))
-}
+def rexp(L):
+    return (-1/L) * math.log(1-random.random())
+
+for i in range(100):
+    print('rexp(2)=', rexp(2))

@@ -65,7 +65,7 @@ def sgd(params, lr, batch_size):
         param.grad.data.zero_()
 
 lr = 0.03  # Learning rate
-num_epochs = 3  # Number of iterations
+num_epochs = 10  # Number of iterations
 net = linreg  # Our fancy linear model
 loss = squared_loss  # 0.5 (y-y')^2
 
