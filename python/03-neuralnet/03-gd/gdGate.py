@@ -19,4 +19,4 @@ def loss(p):
     return np.linalg.norm(delta, 2)
 
 p = [0.0, 0.0, 0.0] # [w1,w2,b] 
-gd.gradientDescendent(loss, p, max_loops=1500)
+gd.gradientDescendent(loss, p, max_loops=3000)

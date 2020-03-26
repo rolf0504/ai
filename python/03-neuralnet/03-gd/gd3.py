@@ -23,7 +23,7 @@ def gradientDescendent(f, p0, step=0.01, max_loops=100000):
         gp = grad(f, p) # 計算梯度 gp
         glen = norm(gp) # norm = 梯度的長度 (步伐大小)
         print('{:d}:p={:s} f(p)={:.3f} gp={:s} glen={:.5f}'.format(i, str(p), fp, str(gp), glen))
-        if glen < 0.00001 or fp0 < fp:  # 如果步伐已經很小了，或者 f(p) 變大了，那麼就停止吧！
+        if glen < 0.00001: # or fp0 < fp:  # 如果步伐已經很小了，或者 f(p) 變大了，那麼就停止吧！
             break
         gstep = np.multiply(gp, -1*step) # gstep = 逆梯度方向的一小步
         p +=  gstep # 向 gstep 方向走一小步
