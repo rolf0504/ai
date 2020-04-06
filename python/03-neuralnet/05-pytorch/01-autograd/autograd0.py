@@ -1,6 +1,6 @@
 import torch
 x = torch.ones(1, requires_grad=True)
-y = x + 2
-z = y * y * 2
+y = torch.ones(1, requires_grad=True)
+z = x*x + y * y
 z.backward()     # automatically calculates the gradient
 print(x.grad)    # ∂z/∂x = 12
