@@ -1,3 +1,7 @@
+# deepLearning model
+*.ckpt
+model
+# deepLearning data
 data
 processed
 raw
