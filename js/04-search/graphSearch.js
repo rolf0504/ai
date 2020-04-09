@@ -44,7 +44,7 @@ function bfs(g, q) { // 廣度優先搜尋
   for (var i in neighbors) { // 對於每個鄰居
     var n = neighbors[i];
     if (!g[n].visited)       // 假如該鄰居還沒被拜訪過
-      q.push(n);             //   就放入 queue 中
+      enqueue(q, n);             //   就放入 queue 中
   }
   bfs(g, q);
 }
