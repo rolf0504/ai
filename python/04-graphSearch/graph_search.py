@@ -40,7 +40,7 @@ def bfs(g, q): #  廣度優先搜尋
     neighbors = g[node]['n']      #  取出鄰居。
     for n in neighbors: #  對於每個鄰居
         if not g[n]['v']:         #  假如該鄰居還沒被拜訪過
-            q.append(n)           #    就放入 queue 中
+            enqueue(q, n)         #    就放入 queue 中
     bfs(g, q)
 
 print('dfs:', end = '')
