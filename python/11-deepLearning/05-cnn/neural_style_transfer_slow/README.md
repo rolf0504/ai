@@ -1,3 +1,14 @@
+跑超久
+
+```
+mac020:neural_style_transfer mac020$ python3 main.py --content='png/content.png' --style='png/style.png'
+Namespace(content='png/content.png', log_step=10, lr=0.003, max_size=400, sample_step=500, style='png/style.png', style_weight=100, total_step=2000)
+Step [10/2000], Content Loss: 5.1513, Style Loss: 24392.0078
+Step [20/2000], Content Loss: 12.9217, Style Loss: 22111.5352
+Step [30/2000], Content Loss: 20.2476, Style Loss: 19644.4531
+...
+```
+
 # Neural Style Transfer
 
 [Neural style transfer](https://arxiv.org/abs/1508.06576) is an algorithm that combines the content of one image with the style of another image using CNN. Given a content image and a style image, the goal is to generate a target image that minimizes the content difference with the content image and the style difference with the style image. 

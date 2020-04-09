@@ -1,6 +1,7 @@
 # deepLearning model
 *.ckpt
 model
+models
 # deepLearning data
 data
 processed
