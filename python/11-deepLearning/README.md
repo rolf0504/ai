@@ -9,3 +9,10 @@
 
 * https://github.com/yunjey/pytorch-tutorial
 
+## 匯出給 tensorflow.js
+
+* https://medium.com/@pnitsan/exporting-and-running-a-deep-learning-model-in-the-browser-including-lstm-a-straight-forward-574a766ef1d6
+
+## 參考
+
+* [2020，PyTorch 真的趕上 TensorFlow 了嗎？](https://www.chainnews.com/zh-hant/articles/249272384535.htm)
