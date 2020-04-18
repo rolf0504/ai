@@ -18,13 +18,13 @@ def pdiv(a,b):
         # print('r=', r)
     return {'r': r[-lb+1:], 'q': q}
 
-def isZero(a):
+def pzero(a, epsilon=0.00001):
     for x in a:
-        if x != 0: return False
+        if abs(x) > epsilon: return False
     return True
 
 def pgcd(a,b):
-    while not isZero(b):
+    while not pzero(b):
         d = pdiv(a,b)
         print('d=', d)
         a = b
