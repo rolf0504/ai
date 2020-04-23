@@ -17,6 +17,12 @@ class KB:
             return True
         return self.facts.get(term) != None
 
+    # check 函數的作用
+    #     以 鳥類 <= 會飛 & 生蛋. 為例
+    #     rule['terms'] = ['會飛' , '生蛋']
+    #     只要 ['會飛' , '生蛋'] 都被滿足了， check 就會傳回 true
+    #     此時 forwardChaining 就會把結論 鳥類 加入事實庫。
+    
     def check(self, rule): # 檢查規則 rule 是否所有前提都被滿足
         for term in rule['terms']:
             if self.isFact(term.strip()):
