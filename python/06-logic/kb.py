@@ -52,14 +52,14 @@ class KB:
         while True:
             anySatisfy = False
 
-            for rule in self.rules:
-                if not rule['satisfy']:
-                    if self.check(rule):
-                        self.addFact(rule['head'])
-                        rule['satisfy'] = True
-                        anySatisfy = True
+            for rule in self.rules:     # 對於每一條規則
+                if not rule['satisfy']: # 如果該規則還沒被滿足
+                    if self.check(rule): # 就檢查該規則的前提是否全都滿足
+                        self.addFact(rule['head']) # 若是就將結論加入事實庫
+                        rule['satisfy'] = True # 設定該規則已被滿足
+                        anySatisfy = True # 這次的推理至少有一條新規則被滿足了。
                 
-            if not anySatisfy:
+            if not anySatisfy: # 若沒有新規則被滿足，推理就結束了。
                 break
 
         print("facts=", self.facts.keys())
