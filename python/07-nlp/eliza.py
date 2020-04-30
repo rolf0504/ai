@@ -76,11 +76,12 @@ def answer(say):
 
 
 def eliza():
+	print('你好，我是 Eliza ! ')
 	while (True):
-		say = input('') # 取得使用者輸入的問句。
+		say = input('> ') # 取得使用者輸入的問句。
 		if say == 'bye':
 			break
 		ans = answer(say)
-		print('>', ans)
+		print(ans)
 
 eliza()
