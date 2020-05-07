@@ -1,4 +1,5 @@
-import math
+# 參考 https://en.wikipedia.org/wiki/Integral
+from math import *
 
 def integrate(f, a, b, h=0.001):
     area = 0
@@ -8,4 +9,4 @@ def integrate(f, a, b, h=0.001):
         x += h
     return area
 
-print('integrate(sin, 0, Pi)=', integrate(math.sin, 0, 3.14159))
+print('integrate(sin, 0, pi)=', integrate(sin, 0, pi))
