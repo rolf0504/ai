@@ -28,3 +28,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 1.118033988749895
 ```
 
+
+## 參考
+
+* [數據分析必掌握的統計學知識！](https://medium.com/%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E4%B8%8D%E6%98%AF%E5%80%8B%E4%BA%8B/%E6%95%B8%E6%93%9A%E5%88%86%E6%9E%90%E5%BF%85%E6%8E%8C%E6%8F%A1%E7%9A%84%E7%B5%B1%E8%A8%88%E5%AD%B8%E7%9F%A5%E8%AD%98-6edf53d98407)
