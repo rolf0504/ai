@@ -1,8 +1,10 @@
 # https://docs.scipy.org/doc/numpy/reference/generated/numpy.fft.fft.html
 import numpy as np
 import matplotlib.pyplot as plt
-t = np.arange(256)
-sp = np.fft.fft(np.sin(t))
-freq = np.fft.fftfreq(t.shape[-1])
-plt.plot(freq, sp.real, freq, sp.imag)
-plt.show()
+np.set_printoptions(precision=4, suppress=True)
+t = np.arange(0, 10*np.pi, 0.1*np.pi)
+# ft = 10*np.sin(t)
+ft = 10*np.cos(t)
+fi = np.fft.ifft(ft)
+print('ft=', ft)
+print('fi=', fi)
