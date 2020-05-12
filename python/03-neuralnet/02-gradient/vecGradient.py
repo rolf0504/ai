@@ -5,7 +5,7 @@ def f(p):
     [x,y] = p
     return x * x + y * y
 
-# 函數 f 對變數 k 的偏微分: df / dp[k]
+# df(f, p, k) 為函數 f 對變數 k 的偏微分: df / dp[k]
 # 例如在上述 f 範例中 k=0, df/dx, k=1, df/dy
 def df(f, p, k):
     p1 = p.copy()
