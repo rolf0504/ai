@@ -8,7 +8,7 @@ def f(p):
     print('x,y=', x, y)
     return x*x + y*y
 
-# 函數 f 對變數 k 的偏微分: df / dk
+# # 函數 f 對變數 p[k] 的偏微分: df / dp[k]
 def df(f, p, k):
     p1 = p.copy()
     p1[k] = p[k]+step
