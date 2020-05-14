@@ -2,6 +2,10 @@
 
 ## eigen1.py
 
+注意：以下 eigen vector X 的排列是 [x1, x2, ..., xn] ，所以 X*L 才是 [l1*x1, l2*x2, ..., ln*xn]
+
+這樣的排列，確實得用 X*L 才會得到所要 A*X 結果。
+
 ```
 A X = X L
 
