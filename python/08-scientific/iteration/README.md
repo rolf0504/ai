@@ -55,6 +55,18 @@ x = (3-x)/(x-1)
    x^2 = 3
 ```
 
+## 所有電腦方法大部分都可以視為迭代法
+
+ex: 爬山演算法
+
+x1 => f(x0) 
+   if n(x0) better than x0, then return n(x0) else return x0
+x2 => f(x1)
+
+...
+
+
+
 ## 參考文獻
 
 * [維基百科:巴拿赫不動點定理](https://zh.wikipedia.org/wiki/%E5%B7%B4%E6%8B%BF%E8%B5%AB%E4%B8%8D%E5%8A%A8%E7%82%B9%E5%AE%9A%E7%90%86)
