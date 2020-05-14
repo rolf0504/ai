@@ -11,11 +11,9 @@ L = np.diag(l) # 把 lambda 轉成對角矩陣
 print('L=\n', L)
 print('X=\n', X)
 
-Ｘt = X.transpose()
+XL = np.dot(X, L)
+AX = np.dot(A, X)
 
-LXt = np.dot(L, Xt)
-AXt = np.dot(L, Xt)
-
-print('LXt=\n', LXt)
-print('AXt=\n', AXt)
-print('is LXt==AXt ?', np.allclose(LXt,AXt))
+print('XL=\n', XL)
+print('AX=\n', AX)
+print('is XL==AX ?', np.allclose(XL,AX))
