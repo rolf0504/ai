@@ -7,7 +7,7 @@ img = imutils.resize(img, width=1280)
 detector = dlib.get_frontal_face_detector()
 
 # 偵測人臉，輸出分數
-face_rects, scores, idx = detector.run(img, 0, -1)
+face_rects, scores, idx = detector.run(img, 0, -1) # 超過 -1 分的人臉都算 
 
 for i, d in enumerate(face_rects):
   x1 = d.left()

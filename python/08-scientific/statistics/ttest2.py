@@ -20,7 +20,7 @@ print(stats.ttest_ind(rvs1, rvs3, equal_var = False))
 
 
 rvs4 = stats.norm.rvs(loc=5, scale=20, size=100)
-stats.ttest_ind(rvs1, rvs4)
+printstats.ttest_ind(rvs1, rvs4)
 (-0.99882539442782481, 0.3182832709103896)
 stats.ttest_ind(rvs1, rvs4, equal_var = False)
 (-0.69712570584654099, 0.48716927725402048)
